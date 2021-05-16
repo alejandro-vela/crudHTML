@@ -1,0 +1,148 @@
+<?php
+    $servidor="localhost"; 
+    $usuario="root"; 
+    $clave=""; <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/css.css" />
+        <title>Fundación Canina</title>
+      </head>
+      
+        <header class="header">
+          <img
+            src="assets/dibujos-animados-perros_24640-47234.jpg"
+            height="200"
+            
+          />
+          <h1>Fundación canina</h1>
+        </header>
+        <nav>
+          <div class="topNavBar">
+            <a class="active" href="#">Inicio</a>
+            <a href="#">¿Quienes somos?</a>
+            <a href="Formato.html">Registrate aqui para adoptar</a>
+            <a href="#">Nuestros perritos</a>
+            <a href="#">Donaciones</a>
+          </div>
+        </nav>
+        <section>
+          <table>
+            
+            
+          </table>
+        </section>
+   
+    <body>
+    <div id="cuadro">
+      <form action="#" name="formulario" method="POST">
+          <center><font size=6  id="titulo">Formulario de registro para adopción</font></center>
+          <hr>
+          <br></br>
+
+        	<center>
+		<id="subtitulo1" placeholder="Ingrese su nombre"> Nombre </font>
+		</center>
+           
+        <center>
+	<input type="text" class="form-control" name="nombre" placeholder="Nombre">
+	</center>
+          
+        	<center>
+		<id="subtitulo2"> Apellido </font>
+		</center> 
+        
+        <center>
+	<input type="text" class="form-control" name="apellido" placeholder="Ingrese su apellido">
+	</center>
+          
+          	<center>
+		<id="subtitulo2"> Edad </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="edad" placeholder="Ingrese su edad">
+	</center>
+          
+          	<center>
+		<id="subtitulo2"> Documento de identidad </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="documento" placeholder="Ingrese la universidad en la que estudia">
+	</center>
+          
+          	<center>
+		<id="subtitulo2">Ciudad</font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="ciudad" placeholder="Ingrese su ciudad">
+	</center>
+          
+         	<center>
+		<id="subtitulo2"> Barrio </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="barrio" placeholder="Ingrese el barrio">
+	</center>
+          
+        	<center>
+		<id="subtitulo2"> Correo electronico </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="correo" placeholder="Ingrese su correo">
+	</center>
+
+          	<center>
+		<id="subtitulo2"> Teléfono </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="telefono" placeholder="Ingrese su numero telefonico">
+	</center>
+	          
+	  	<center>
+		<id="subtitulo2"> Comentario </font>
+		</center>
+          
+        <center>
+	<input type="text" class="form-control" name="comentario" placeholder="Comentario">
+	</center>
+
+          	<center>
+	<button type="submit" name="Enviar" value="Enviar "class="btn btn-info btn-lg btn-block">Enviar solictud de adopción</button>
+		</center> 
+          
+          </div>
+     </body>     
+          
+  
+</html>
+
+<?php
+	if(isset($_POST['Enviar'])){
+		$nombre =$_POST["nombre"];
+		$apellido=$_POST["apellido"];
+		$edad=$_POST["edad"];
+        	$documento=$_POST["documento"];
+		$ciudad=$_POST["ciudad"];
+        	$barrio=$_POST["barrio"];
+        	$correo=$_POST["correo"];
+        	$telefono=$_POST["telefono"];
+        	$comentario=$_POST["comentario"];
+
+		
+		$insertarDatos = "INSERT INTO `datosp` (`nombre`, `apellido`, `edad`, `documento`, `ciudad`, `barrio`, `correo`, `telefono`, `comentario`) 
+		VALUES ('$nombre', '$apellido', '$edad', '$documento', '$ciudad', '$barrio', '$correo', '$telefono', '$comentario');";
+		$ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
+
+		if(!$ejecutarInsertar){
+			echo"Error En la linea de sql";
+		}
+	}
+?>
